@@ -1,8 +1,8 @@
+*{box-sizing: border-box;}
 body{
     margin:0;
     height: 100%;
 }
-
 .header{
     padding:15px 0;
     background-color: white;
@@ -195,5 +195,3 @@ select{
         align-items: flex-start;
     }
 }
-
-*{box-sizing: border-box;}
