@@ -1,17 +1,12 @@
 class EmployeePayroll {
-  constructor(...params) {
-    this.id = params[0];
-    this.name = params[1];
-    this.salary = params[2];
-    this.gender = params[3];
-    this.startDate = params[4];
-  }
+  
 
   get id() {
     return this._id;
   }
   set id(id) {
-      this._id = id;
+    if (parseInt(id) > 0) this._id = id;
+    else throw "Given id format is incorrect";
   }
   get name() {
     return this._name;
@@ -61,6 +56,7 @@ class EmployeePayroll {
       this._startDate = startDate;
     else throw "Given start date is in future";
   }
+
   toString() {
     const format = { year: "numeric", month: "long", day: "numeric" };
     const date =

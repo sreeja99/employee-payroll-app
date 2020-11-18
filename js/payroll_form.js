@@ -20,10 +20,22 @@ const save =() => {
   console.log("submit");
   try{
     let employeePayrollData = createEmployeePayroll();
+    createAndUpdateStorage(employeePayrollData);
   }catch(e){
     return;
   }
 }
+function createAndUpdateStorage(employeePayrollData) {
+  let empList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+  if (empList != undefined) {
+      empList.push(employeePayrollData);
+  } else {
+      empList = [employeePayrollData];
+  }
+  localStorage.setItem("EmployeePayrollList", JSON.stringify(empList));
+  alert(localStorage.getItem("EmployeePayrollList"));
+}
+
 const createEmployeePayroll = () => {
   let employeePayrollData = new EmployeePayroll();
   try{
@@ -58,3 +70,4 @@ const getInputElementValue = (id) => {
   let value = document.getElementById(id).value;
   return value;
 }
+
