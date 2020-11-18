@@ -128,7 +128,7 @@ select{
 .buttonParent{
     display: flex;
     margin-bottom: 10px;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 20px;
 }
 
@@ -147,10 +147,16 @@ select{
     cursor: pointer;
 }
 .submitButton{
-    border: none;
+   
     background-color: #f5f5f5;
     margin-block-end: 30px;
 }
+error-output {
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+  }
 
 
 .cancelButton{
@@ -158,6 +164,7 @@ select{
     text-align: center;
     background-color: #f5f5f5;
     margin-right: 10px;
+    
 } 
 .resetButton{
     text-decoration: none;

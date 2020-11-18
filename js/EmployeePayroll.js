@@ -1,4 +1,3 @@
-
 class EmployeePayroll {
   constructor(...params) {
     this.id = params[0];
@@ -62,7 +61,6 @@ class EmployeePayroll {
       this._startDate = startDate;
     else throw "Given start date is in future";
   }
-
   toString() {
     const format = { year: "numeric", month: "long", day: "numeric" };
     const date =
