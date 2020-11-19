@@ -1,14 +1,18 @@
 window.addEventListener("DOMContentLoaded", (event) => {
   const name = document.querySelector("#name");
   const textError = document.querySelector(".text-error");
-  name.addEventListener("input", function () {
-    const nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
-    if (nameRegex.test(name.value)) {
-      textError.textContent="";
+  name.addEventListener("input", function() {
+    if (name.value.length == 0) {
+        textError.textContent = "";
+        return;
     }
-    else 
-    textError.textContent="Wrong name";
-  });
+    try {
+        new EmployeePayroll().name = name.value;
+        textError.textContent = "";
+    } catch (e) {
+        textError.textContent = e;
+    }
+});
 const salary = document.querySelector("#salary");
 const output = document.querySelector(".salary-output");
 output.textContent = salary.value;

@@ -1,6 +1,4 @@
 class EmployeePayroll {
-  
-
   get id() {
     return this._id;
   }
