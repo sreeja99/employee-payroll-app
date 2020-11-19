@@ -1,13 +1,24 @@
+let empPayrollList = [];
 window.addEventListener("DOMContentLoaded", (event) => {
+    empPayrollList = getEmpDetailsFromLocalStorage();
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem("editEmp");
 });
 
+const getEmpDetailsFromLocalStorage = () => {
+    return localStorage.getItem("EmployeePayrollList") ?
+        JSON.parse(localStorage.getItem("EmployeePayrollList")) :
+        [];
+};
+
 const createInnerHtml = () => {
+    if(empPayrollList.length ==0)return ;
     const headerHtml =
         "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Day</th><th>Actions</th></tr>";
     let innerHtml = `${headerHtml}`;
-    let empList = createEmployeePayrollJSON();
-    for (let emp of empList) {
+
+    for (let emp of empPayrollList) {
         innerHtml = `${innerHtml}  
             <tr>
             <td>
@@ -30,8 +41,8 @@ const createInnerHtml = () => {
 
 const createEmployeePayrollJSON = () => {
     let employeePayrollListLocal = [{
-            _name: "Sreeja Godishala",
-            _profilePic: "../assets/Ellipse -1.png",
+            _name: "Arjun Gupta",
+            _profilePic: "../assets/Ellipse -8.png",
             _gender: "Male",
             _department: ["Others"],
             _salary: "40000",
@@ -39,7 +50,7 @@ const createEmployeePayrollJSON = () => {
             _startDate: "16 Sep 2020",
         },
         {
-            _name: "Mohit Kumar",
+            _name: "Random 2",
             _profilePic: "../assets/Ellipse -2.png",
             _gender: "Male",
             _department: ["HR", "Others"],
@@ -48,7 +59,7 @@ const createEmployeePayrollJSON = () => {
             _startDate: "01 Jan 2018",
         },
         {
-            _name: "Rahul Gupta",
+            _name: "Random 3",
             _profilePic: "../assets/Ellipse -3.png",
             _gender: "Male",
             _department: ["Others"],
