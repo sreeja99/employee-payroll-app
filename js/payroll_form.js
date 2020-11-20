@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 const salary = document.querySelector("#salary");
 const output = document.querySelector(".salary-output");
-output.textContent = salary.value;
 salary.addEventListener("input", function () {
     output.textContent = salary.value;
   });
@@ -80,7 +79,8 @@ const createEmployeePayroll = () => {
   employeePayrollData.salary =getInputValueById('#salary');
   employeePayrollData.note =getInputValueById('#notes');
   let date= getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
-  employeePayrollData.date = Date.parse(date);
+  console.log(date);
+  employeePayrollData.startDate = new Date(date);
   alert(employeePayrollData.toString());
   return employeePayrollData;
 }

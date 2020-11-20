@@ -50,17 +50,17 @@ class EmployeePayroll {
     return this._startDate;
   }
   set startDate(startDate) {
-    if (startDate <= new Date() || startDate == undefined)
-      this._startDate = startDate;
-    else throw "Given start date is in future";
-  }
+    if (startDate.toLocaleDateString <= new Date().toLocaleDateString)
+        this._startDate = startDate;
+    else throw "Start date is incorrect";
+}
 
   toString() {
     const format = { year: "numeric", month: "long", day: "numeric" };
     const date =
       this.startDate === undefined
         ? "undefined"
-        : this.startDate.toLocaleDateString("en-US", format);
-    return `id:${this.id}, name:${this.name}, salary:${this.salary}, gender:${this.gender}, startDate:${date}`;
+        : this.startDate.toLocaleDateString("en-GB", format);
+    return `id:${this.id},profilePic:${this.profilePic}, name:${this.name},department:${this.department}, salary:${this.salary}, gender:${this.gender}, startDate:${date}`;
   }
 }
