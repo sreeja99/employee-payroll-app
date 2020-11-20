@@ -30,7 +30,7 @@ const createInnerHtml = () => {
             <td>${stringifyDate(emp._startDate)}</td>
             <td>
             <img id="${
-                emp.id
+                emp._id
               }" onclick="remove(this)" src="../assets/delete-black-18dp.svg" alt="Delete">
               <img id="${
                 emp._id
@@ -95,4 +95,12 @@ const remove = (node) => {
     createInnerHtml();
 
 }
+const update = (node) => {
+    let empData = empPayrollList.find((emp) => emp._id == node.id);
+    if (!empData) return;
+    localStorage.setItem("editEmp", JSON.stringify(empData));
+    window.location.href = site_properties.add_employee_page;
+    isUpdating = true;
+    currentNode = node;
+};
 
