@@ -99,7 +99,7 @@ const update = (node) => {
     let empData = empPayrollList.find((emp) => emp._id == node.id);
     if (!empData) return;
     localStorage.setItem("editEmp", JSON.stringify(empData));
-    window.location.href = site_properties.add_employee_page;
+    window.location.href = site_properties.add_emp_payroll_page;
     isUpdating = true;
     currentNode = node;
 };
