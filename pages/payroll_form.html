@@ -7,6 +7,7 @@
     <link rel ="stylesheet" href = "../css/new_payoll_form.css">
     <title>Employee Payroll Form</title>
     <script src="../js/EmployeePayroll.js"></script>
+    <script src="../js/utility.js"></script>
     <script defer src="../js/payroll_form.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
         </div>
     </header>
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save();return false">
+        <form class="form" action="#" onsubmit="save(event);return false">
             <div class="form-head">
                 Employee Payroll Form
             </div>
@@ -53,7 +54,7 @@
                         <img class="profile" id='image1' src="../assets/Ellipse -7.png">
                     </label>
                 </div>
-                <input type="radio">
+                
             </div>
             <div class="row-content">
                 <label class ="label text" for ="gender">Gender</label>

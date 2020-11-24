@@ -56,7 +56,7 @@ class EmployeePayroll {
 }
 
   toString() {
-    const format = { year: "numeric", month: "long", day: "numeric" };
+    const format = { year: "numeric", month: "short", day: "numeric" };
     const date =
       this.startDate === undefined
         ? "undefined"
