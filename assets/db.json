@@ -1,0 +1,55 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "_name": "Mark Taylor",
+      "_gender": "male",
+      "_department": [
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer"
+      ],
+      "_salary": "50000",
+      "_startDate": "29 Oct 2019",
+      "_note": "All In One",
+      "_profilePic": "../assets/Ellipse -3.png"
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "id": 3
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "id": 4
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/profile-images/Ellipse -1.png",
+      "id": 5
+    }
+  ]
+}

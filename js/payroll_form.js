@@ -200,10 +200,6 @@ const setForm = () => {
   setValue("#salary", employeePayrollObj._salary);
   setTextValue(".salary-output", employeePayrollObj._salary);
   setValue("#notes", employeePayrollObj._note);
-  //let date = employeePayrollObj._startDate.split("-");
-  //setValue("#day", parseInt(date[2].substring(0, 2)));
-  //setValue("#month", date[1]);
-  //setValue("#year", date[0]);
   let date = stringifyDate(employeePayrollObj._startDate).split(" ");
     setValue('#day', date[0]);
     setValue('#month', date[1]);
