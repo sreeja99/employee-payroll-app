@@ -1,11 +1,5 @@
 class EmployeePayroll {
-  get id() {
-    return this._id;
-  }
-  set id(id) {
-    if (parseInt(id) > 0) this._id = id;
-    else throw "Given id format is incorrect";
-  }
+  id;
   get name() {
     return this._name;
   }

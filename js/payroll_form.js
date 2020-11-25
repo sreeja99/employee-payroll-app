@@ -9,8 +9,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         return;
     }
     try {
-        new EmployeePayroll().name = name.value;
-        textError.textContent = "";
+      checkName(name.value);
+      setTextValue(".text-error", "");
+      textError.textContent = "";
     } catch (e) {
         textError.textContent = e;
     }
@@ -20,10 +21,11 @@ const output = document.querySelector(".salary-output");
 salary.addEventListener("input", function () {
     output.textContent = salary.value;
   });
-  const startdate = document.querySelector("#startDate");
-  startdate.addEventListener("input", function() {
-      let date = new Date(Date.parse(getInputValueById('#month') + " " + getInputValueById('#day') + " " + getInputValueById('#year')));
+const startdate = document.querySelector("#startDate");
+startdate.addEventListener("input", function() {
+let date = new Date(Date.parse(getInputValueById('#month') + " " + getInputValueById('#day') + " " + getInputValueById('#year')));
       try {
+          checkStartDate(new Date(year, month, day));
           (new EmployeePayroll()).startDate = date;
           setTextValue('.date-error', "");
       } catch (e) {
@@ -33,30 +35,33 @@ salary.addEventListener("input", function () {
   checkForUpdate();
 });
 const save =(event) => {
+  console.log(employeePayrollObj);
   event.preventDefault();
   event.stopPropagation();
   console.log("submit");
   try{
     setEmployeePayrollObject();
+    if(site_properties.use_local_storage.match("true")){
     createAndUpdateStorage();
     resetForm();
     window.location.replace( site_properties.home_page);
+    }
   }catch(e){
     console.log(e);
     return;
   }
 }
 const setEmployeePayrollObject = () => {
+  if (!isUpdate && site_properties.use_local_storage.match("true")) {
+    employeePayrollObj.id = new Date().getTime();
+}
+  console.log(employeePayrollObj._name);
   employeePayrollObj._name = getInputValueById("#name");
   employeePayrollObj._profilePic = getSelectedValues("[name=profile]").pop();
   employeePayrollObj._gender = getSelectedValues("[name=gender]").pop();
   employeePayrollObj._department = getSelectedValues("[name=department]");
   employeePayrollObj._salary = getInputValueById("#salary");
   employeePayrollObj._note = getInputValueById("#notes");
-  //let year = getInputValueById("#year");
-  //let month = getInputValueById("#month") ;
-  //let day = getInputValueById("#day");
-  
   employeePayrollObj._startDate = new Date(getInputValueById("#year") + " " + getInputValueById("#month") + " " + getInputValueById("#day"));
 }
 ;
@@ -68,21 +73,21 @@ const createAndUpdateStorage = () => {
   );
   if (employeePayrollList) {
       let empPayrollData = employeePayrollList.find(
-          (employee) => employee._id == employeePayrollObj._id
+          (employee) => employee.id == employeePayrollObj.id
       );
-      if (!empPayrollData) employeePayrollList.push(createEmployeePayrollData());
+      if (!empPayrollData) employeePayrollList.push(employeePayrollObj);
       else {
           const index = employeePayrollList
-              .map((emp) => emp._id)
-              .indexOf(empPayrollData._id);
+              .map((emp) => emp.id)
+              .indexOf(empPayrollData.id);
           employeePayrollList.splice(
               index,
               1,
-              createEmployeePayrollData(empPayrollData._id)
+              employeePayrollObj
           );
       }
   } else {
-      employeePayrollList = [createEmployeePayrollData()];
+      employeePayrollList = [employeePayrollObj];
   }
   localStorage.setItem(
       "EmployeePayrollList",
@@ -200,6 +205,10 @@ const setForm = () => {
   setValue("#salary", employeePayrollObj._salary);
   setTextValue(".salary-output", employeePayrollObj._salary);
   setValue("#notes", employeePayrollObj._note);
+  //let date = employeePayrollObj._startDate.split("-");
+  //setValue("#day", parseInt(date[2].substring(0, 2)));
+  //setValue("#month", date[1]);
+  //setValue("#year", date[0]);
   let date = stringifyDate(employeePayrollObj._startDate).split(" ");
     setValue('#day', date[0]);
     setValue('#month', date[1]);
