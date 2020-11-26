@@ -21,17 +21,6 @@ const output = document.querySelector(".salary-output");
 salary.addEventListener("input", function () {
     output.textContent = salary.value;
   });
-const startdate = document.querySelector("#startDate");
-startdate.addEventListener("input", function() {
-let date = new Date(Date.parse(getInputValueById('#month') + " " + getInputValueById('#day') + " " + getInputValueById('#year')));
-      try {
-          checkStartDate(new Date(year, month, day));
-          (new EmployeePayroll()).startDate = date;
-          setTextValue('.date-error', "");
-      } catch (e) {
-          setTextValue('.date-error', e);
-      }
-  });
   checkForUpdate();
 });
 const save =(event) => {
@@ -55,7 +44,6 @@ const setEmployeePayrollObject = () => {
   if (!isUpdate && site_properties.use_local_storage.match("true")) {
     employeePayrollObj.id = new Date().getTime();
 }
-  console.log(employeePayrollObj._name);
   employeePayrollObj._name = getInputValueById("#name");
   employeePayrollObj._profilePic = getSelectedValues("[name=profile]").pop();
   employeePayrollObj._gender = getSelectedValues("[name=gender]").pop();

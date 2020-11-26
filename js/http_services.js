@@ -3,7 +3,7 @@ function showTime(){
     return date.getHours() +"Hrs:"+date.getMinutes() + "Mins:" +date.getSeconds()+"Secs";
 }
 
-function makePromisecall(methodType,url,async=true,data=null){
+function makeServicecall(methodType,url,async=true,data=null){
     return new Promise(function(resolve,reject){
         let xhr =  new XMLHttpRequest();
         xhr.onload = function(){

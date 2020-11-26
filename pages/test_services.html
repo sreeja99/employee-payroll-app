@@ -25,7 +25,7 @@
         <script>
             const getElem = document.querySelector("#get_services");
             const getURL = "http://localhost:3000/employees/1";
-            makePromisecall("GET",getURL,true)
+            makeServicecall("GET",getURL,true)
                 .then(responseText => {
                     getElem.textContent = "Get User Data: "+responseText;
                 })
@@ -35,7 +35,7 @@
 
             const deleteElem = document.querySelector("#delete_services");
             const deleteURL = "http://localhost:3000/employees/2";
-            makePromisecall("DELETE",deleteURL,false)
+            makeServicecall("DELETE",deleteURL,false)
                 .then(responseText => {
                     deleteElem.textContent = "Delete Data: "+responseText;
                 })
@@ -54,7 +54,7 @@
                                _startDate: "29 Oct 2019",
                                _note: "",
                                _profilePic: "../assets/profile-images/Ellipse -1.png"};
-            makePromisecall("POST",postURL,true,emplData)
+            makeServicecall("POST",postURL,true,emplData)
                 .then(responseText => {
                     postElem.textContent = "New User Data: "+responseText;
                 })
