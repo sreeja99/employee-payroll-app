@@ -99,6 +99,7 @@ const getDeptHtml = (deptList) => {
         deptHtml = `${deptHtml}<div class="dept-label">${dept}</div>`;
     return deptHtml;
 };
+
 const remove = (node) => {
     console.log(node.id);
     let empData = empPayrollList.find((emp) => emp.id == node.id);
@@ -107,9 +108,21 @@ const remove = (node) => {
         .map((emp) => emp.id)
         .indexOf(empData.id);
     empPayrollList.splice(index, 1);
+    if(site_properties.use_local_storage.match("true")){
     localStorage.setItem("EmployeePayrollList", JSON.stringify(empPayrollList));
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    }
+    else{
+        const deleteURL = site_properties.server_url +"/"+empData.id.toString();
+        makeServicecall("DELETE",deleteURL,false)
+        .then(responseText => {
+            createInnerHtml();
+        })
+        .catch(error => {
+            console.log("DElETE ERROR STATUS:"+JSON.stringify(error));
+        });
+    }
 
 }
 const update = (node) => {
