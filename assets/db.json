@@ -38,7 +38,90 @@
       "_note": "",
       "_profilePic": "../assets/Ellipse -1.png",
       "id": 5
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets//Ellipse -1.png",
+      "id": 6
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/Ellipse -1.png",
+      "id": 7
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/Ellipse -1.png",
+      "id": 8
+    },
+    {
+      "_name": "Amarpa Shashanka Keerthi Kumar",
+      "_gender": "female",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400000",
+      "_startDate": "29 Oct 2019",
+      "_note": "",
+      "_profilePic": "../assets/Ellipse -1.png",
+      "id": 9
+    },
+    {
+      "_name": "Capgemini",
+      "_profilePic": "../assets/Ellipse -3.png",
+      "_gender": "male",
+      "_department": [
+        "Engineer"
+      ],
+      "_salary": "500000",
+      "_note": "t",
+      "_startDate": "2020-08-08T18:30:00.000Z",
+      "id": 10
+    },
+    {
+      "_name": "Sreeja",
+      "_profilePic": "../assets/Ellipse -7.png",
+      "_gender": "female",
+      "_department": [
+        "Finance"
+      ],
+      "_salary": "476600",
+      "_note": "y",
+      "_startDate": "2018-04-03T18:30:00.000Z",
+      "id": 11
+    },
+    {
+      "_name": "Shreya",
+      "_profilePic": "../assets/Ellipse -1.png",
+      "_gender": "female",
+      "_department": [
+        "Finance"
+      ],
+      "_salary": "418300",
+      "_note": "m",
+      "_startDate": "2018-05-04T18:30:00.000Z",
+      "id": 12
     }
-    
   ]
 }

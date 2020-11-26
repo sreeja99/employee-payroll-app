@@ -24,7 +24,6 @@ salary.addEventListener("input", function () {
   checkForUpdate();
 });
 const save =(event) => {
-  console.log(employeePayrollObj);
   event.preventDefault();
   event.stopPropagation();
   console.log("submit");
@@ -46,9 +45,10 @@ const save =(event) => {
 const createOrUpdateEmployeePayroll = () => {
   let postURL =site_properties.server_url;
   let methodCall ="POST";
-  if(!isUpdate){
+  if(isUpdate){
     methodCall ="PUT";
-    postURL=postURL+employeePayrollObj.id.toString();
+    postURL=postURL +"/"+ employeePayrollObj.id.toString();
+    console.log(postURL+"line50");
   }
   makeServicecall(methodCall,postURL,true,employeePayrollObj)
   .then(responseText => {
